@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EE624BE9-5D17-4EFA-B4B0-2578578AFC5B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="・FractalC\FractalC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="・FractalD\FractalD.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FractalC">
+        <MSBuild Projects="・FractalC\FractalC.cbproj"/>
+    </Target>
+    <Target Name="FractalC:Clean">
+        <MSBuild Projects="・FractalC\FractalC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FractalC:Make">
+        <MSBuild Projects="・FractalC\FractalC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="FractalD">
+        <MSBuild Projects="・FractalD\FractalD.dproj"/>
+    </Target>
+    <Target Name="FractalD:Clean">
+        <MSBuild Projects="・FractalD\FractalD.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FractalD:Make">
+        <MSBuild Projects="・FractalD\FractalD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FractalC;FractalD"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FractalC:Clean;FractalD:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FractalC:Make;FractalD:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
