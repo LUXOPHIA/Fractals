@@ -16,10 +16,6 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
 
-void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
-{
-	 CanClose = ButtonP->Enabled;
-}
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
 
 TDoubleC TForm1::ScreenComplex( const int X_, const int Y_ )
@@ -57,6 +53,11 @@ TByteRGBA TForm1::ComplexColor( const TDoubleC V_ )
 }
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+//---------------------------------------------------------------------------
+void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
+{
+	 CanClose = ButtonP->Enabled;
+}
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonPClick(TObject *Sender)
 {
