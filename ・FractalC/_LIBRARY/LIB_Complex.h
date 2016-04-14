@@ -27,8 +27,8 @@ public:
   __property double Abs2 = { read = GetAbs2 };
   __property double Abso = { read = GetAbso };
   ///// ‰‰ŽZŽq
-  friend TDoubleC operator+( const TDoubleC A_, const TDoubleC B_ );
-  friend TDoubleC operator*( const TDoubleC A_, const TDoubleC B_ );
+  friend TDoubleC operator+( const TDoubleC& A_, const TDoubleC& B_ );
+  friend TDoubleC operator*( const TDoubleC& A_, const TDoubleC& B_ );
   ///// Œ^•ÏŠ·
 };
 

@@ -39,7 +39,7 @@ TDoubleC::TDoubleC( const double R_, const double I_ )
 
 ///////////////////////////////////////////////////////////////////////// ‰‰ŽZŽq
 
-TDoubleC operator+( const TDoubleC A_, const TDoubleC B_ )
+TDoubleC operator+( const TDoubleC& A_, const TDoubleC& B_ )
 {
 	TDoubleC Result;
 
@@ -49,7 +49,7 @@ TDoubleC operator+( const TDoubleC A_, const TDoubleC B_ )
 	return Result;
 }
 
-TDoubleC operator*( const TDoubleC A_, const TDoubleC B_ )
+TDoubleC operator*( const TDoubleC& A_, const TDoubleC& B_ )
 {
 	TDoubleC Result;
 
