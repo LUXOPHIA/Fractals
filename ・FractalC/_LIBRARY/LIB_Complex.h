@@ -13,7 +13,7 @@
 struct TDoubleC
 {
 private:
-	///// アクセサ
+	///// アクセス
 	double GetAbs2();
 	double GetAbso();
 public:
@@ -37,7 +37,7 @@ public:
 struct TDoubleAreaC
 {
 private:
-	///// アクセサ
+	///// アクセス
 	double GetSizeR();
 	double GetSizeI();
 public:
