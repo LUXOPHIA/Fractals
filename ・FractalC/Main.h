@@ -45,7 +45,7 @@ public:		// ユーザー宣言
 	__fastcall TForm1(TComponent* Owner);
 	/////
 	TDoubleC ScreenComplex( const int X_, const int Y_ );
-	TAlphaColorF ComplexColor( const TDoubleC C_ );
+	TSingleRGBA ComplexColor( const TDoubleC C_ );
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
