@@ -11,6 +11,7 @@ uses
 type
   TForm1 = class(TForm)
     Image1: TImage;
+    Panel1: TPanel;
     GroupBoxI: TGroupBox;
     LabelW: TLabel;
     EditW: TEdit;
