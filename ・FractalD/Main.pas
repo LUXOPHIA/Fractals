@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.StdCtrls, FMX.ExtCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.Objects,
-  LIB, LIB.Complex;
+  LIB, LIB.Complex, LIB.Color;
 
 type
   TForm1 = class(TForm)
@@ -36,7 +36,7 @@ type
     _AreaC :TDoubleAreaC;
     /////
     function ScreenToComplex( const X_,Y_:Integer ) :TDoubleC;
-    function ComplexToColor( const C_:TDoubleC ) :TAlphaColorF;
+    function ComplexToColor( const C_:TDoubleC ) :TSingleRGBA;
   end;
 
 var
@@ -59,10 +59,10 @@ begin
      end;
 end;
 
-function TForm1.ComplexToColor( const C_:TDoubleC ) :TAlphaColorF;
+function TForm1.ComplexToColor( const C_:TDoubleC ) :TSingleRGBA;
 const
-     C0 :TAlphaColorF = ( R:0; G:0; B:0; A:1 );
-     C1 :TAlphaColorF = ( R:1; G:1; B:1; A:1 );
+     C0 :TSingleRGBA = ( R:0; G:0; B:0; A:1 );
+     C1 :TSingleRGBA = ( R:1; G:1; B:1; A:1 );
 var
    Z :TDoubleC;
    N :Integer;
@@ -131,7 +131,7 @@ begin
                begin
                     C := ScreenToComplex( X, Y );
 
-                    B.Pixels[ X, Y ] := ComplexToColor( C ).ToAlphaColor;
+                    B.Pixels[ X, Y ] := TByteRGBA( ComplexToColor( C ) );
                end;
 
                Unmap( B );
