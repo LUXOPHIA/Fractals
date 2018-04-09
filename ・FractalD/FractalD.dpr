@@ -5,7 +5,8 @@ uses
   FMX.Forms,
   Main in 'Main.pas' {Form1},
   LIB.Complex in '_LIBRARY\LIB.Complex.pas',
-  LIB in '_LIBRARY\LIB.pas';
+  LIB in '_LIBRARY\LIB.pas',
+  LIB.Color in '_LIBRARY\LIB.Color.pas';
 
 {$R *.res}
 
