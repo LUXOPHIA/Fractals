@@ -1,13 +1,13 @@
-#pragma hdrstop
+ï»¿#pragma hdrstop
 #include "LIB.h"
 #pragma package(smart_init)
-//############################################################################## ¡
+//############################################################################## â– 
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒŒƒR[ƒhz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ãƒ¬ã‚³ãƒ¼ãƒ‰ã€‘
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒNƒ‰ƒXz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ã‚¯ãƒ©ã‚¹ã€‘
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒ‹[ƒ`ƒ“z
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ãƒ«ãƒ¼ãƒãƒ³ã€‘
 
 float Pow2( const float X_ )
 {
@@ -33,7 +33,7 @@ double Roo2( const double X_ )
 
 ////////////////////////////////////////////////////////////////////////////////
 
-int ClipRange( const int X_, const int Min_, const int Max_ )
+int Clamp( const int X_, const int Min_, const int Max_ )
 {
 	 if ( X_ < Min_ ) return Min_;
 				 else
@@ -41,7 +41,7 @@ int ClipRange( const int X_, const int Min_, const int Max_ )
 				 else return X_;
 }
 
-float ClipRange( const float X_, const float Min_, const float Max_ )
+float Clamp( const float X_, const float Min_, const float Max_ )
 {
 	 if ( X_ < Min_ ) return Min_;
 				 else
@@ -49,7 +49,7 @@ float ClipRange( const float X_, const float Min_, const float Max_ )
 				 else return X_;
 }
 
-double ClipRange( const double X_, const double Min_, const double Max_ )
+double Clamp( const double X_, const double Min_, const double Max_ )
 {
 	 if ( X_ < Min_ ) return Min_;
 				 else
@@ -57,4 +57,4 @@ double ClipRange( const double X_, const double Min_, const double Max_ )
 				 else return X_;
 }
 
-//############################################################################## ¡
+//############################################################################## â– 
