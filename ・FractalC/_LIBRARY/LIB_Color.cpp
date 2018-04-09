@@ -11,6 +11,14 @@
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
 
+TByteRGBA::TByteRGBA( const uint8_t L_, const uint8_t A_ )
+{
+	R = L_;
+	G = L_;
+	B = L_;
+	A = 0xFF;
+}
+
 TByteRGBA::TByteRGBA( const uint8_t R_, const uint8_t G_, const uint8_t B_, const uint8_t A_ )
 {
 	R = R_;
@@ -19,60 +27,64 @@ TByteRGBA::TByteRGBA( const uint8_t R_, const uint8_t G_, const uint8_t B_, cons
 	A = A_;
 }
 
-TByteRGBA::TByteRGBA( const uint8_t L_ )
-{
-	R = L_;
-	G = L_;
-	B = L_;
-	A = 0xFF;
-}
-
 ///////////////////////////////////////////////////////////////////////// 演算子
 
-TByteRGBA operator+( const TByteRGBA A, const TByteRGBA B )
+TByteRGBA operator+( const TByteRGBA& A_ )
 {
 	TByteRGBA Result;
 
-	Result.R = A.R + B.R;
-	Result.G = A.G + B.G;
-	Result.B = A.B + B.B;
-	Result.A = A.A + B.A;
+	Result.R = +A_.R;
+	Result.G = +A_.G;
+	Result.B = +A_.B;
+	Result.A = +A_.A;
 
 	return Result;
 }
 
-TByteRGBA operator-( const TByteRGBA A, const TByteRGBA B )
+TByteRGBA operator+( const TByteRGBA& A_, const TByteRGBA& B_ )
 {
 	TByteRGBA Result;
 
-	Result.R = A.R - B.R;
-	Result.G = A.G - B.G;
-	Result.B = A.B - B.B;
-	Result.A = A.A - B.A;
+	Result.R = A_.R + B_.R;
+	Result.G = A_.G + B_.G;
+	Result.B = A_.B + B_.B;
+	Result.A = A_.A + B_.A;
 
 	return Result;
 }
 
-TByteRGBA operator*( const TByteRGBA A, const float B )
+TByteRGBA operator-( const TByteRGBA& A_, const TByteRGBA& B_ )
 {
 	TByteRGBA Result;
 
-	Result.R = A.R * B;
-	Result.G = A.G * B;
-	Result.B = A.B * B;
-	Result.A = A.A * B;
+	Result.R = A_.R - B_.R;
+	Result.G = A_.G - B_.G;
+	Result.B = A_.B - B_.B;
+	Result.A = A_.A - B_.A;
 
 	return Result;
 }
 
-TByteRGBA operator/( const TByteRGBA A, const int B )
+TByteRGBA operator*( const TByteRGBA& A_, const uint8_t& B_ )
 {
 	TByteRGBA Result;
 
-	Result.R = A.R / B;
-	Result.G = A.G / B;
-	Result.B = A.B / B;
-	Result.A = A.A / B;
+	Result.R = A_.R * B_;
+	Result.G = A_.G * B_;
+	Result.B = A_.B * B_;
+	Result.A = A_.A * B_;
+
+	return Result;
+}
+
+TByteRGBA operator/( const TByteRGBA& A_, const uint8_t& B_ )
+{
+	TByteRGBA Result;
+
+	Result.R = A_.R / B_;
+	Result.G = A_.G / B_;
+	Result.B = A_.B / B_;
+	Result.A = A_.A / B_;
 
 	return Result;
 }
@@ -90,6 +102,14 @@ TByteRGBA::operator TAlphaColor() const
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
 
+TSingleRGBA::TSingleRGBA( const float L_, const float A_ )
+{
+	R = L_;
+	G = L_;
+	B = L_;
+	A = A_;
+}
+
 TSingleRGBA::TSingleRGBA( const float R_, const float G_, const float B_, const float A_ )
 {
 	R = R_;
@@ -98,60 +118,76 @@ TSingleRGBA::TSingleRGBA( const float R_, const float G_, const float B_, const 
 	A = A_;
 }
 
-TSingleRGBA::TSingleRGBA( const float L_ )
-{
-	R = L_;
-	G = L_;
-	B = L_;
-	A = 1 ;
-}
-
 ///////////////////////////////////////////////////////////////////////// 演算子
 
-TSingleRGBA operator+( const TSingleRGBA A, const TSingleRGBA B )
+TSingleRGBA operator+( const TSingleRGBA& A_ )
 {
 	TSingleRGBA Result;
 
-	Result.R = A.R + B.R;
-	Result.G = A.G + B.G;
-	Result.B = A.B + B.B;
-	Result.A = A.A + B.A;
+	Result.R = +A_.R;
+	Result.G = +A_.G;
+	Result.B = +A_.B;
+	Result.A = +A_.A;
 
 	return Result;
 }
 
-TSingleRGBA operator-( const TSingleRGBA A, const TSingleRGBA B )
+TSingleRGBA operator-( const TSingleRGBA& A_ )
 {
 	TSingleRGBA Result;
 
-	Result.R = A.R - B.R;
-	Result.G = A.G - B.G;
-	Result.B = A.B - B.B;
-	Result.A = A.A - B.A;
+	Result.R = -A_.R;
+	Result.G = -A_.G;
+	Result.B = -A_.B;
+	Result.A = -A_.A;
 
 	return Result;
 }
 
-TSingleRGBA operator*( const TSingleRGBA A, const float B )
+TSingleRGBA operator+( const TSingleRGBA& A_, const TSingleRGBA& B_ )
 {
 	TSingleRGBA Result;
 
-	Result.R = A.R * B;
-	Result.G = A.G * B;
-	Result.B = A.B * B;
-	Result.A = A.A * B;
+	Result.R = A_.R + B_.R;
+	Result.G = A_.G + B_.G;
+	Result.B = A_.B + B_.B;
+	Result.A = A_.A + B_.A;
 
 	return Result;
 }
 
-TSingleRGBA operator/( const TSingleRGBA A, const float B )
+TSingleRGBA operator-( const TSingleRGBA& A_, const TSingleRGBA& B_ )
 {
 	TSingleRGBA Result;
 
-	Result.R = A.R / B;
-	Result.G = A.G / B;
-	Result.B = A.B / B;
-	Result.A = A.A / B;
+	Result.R = A_.R - B_.R;
+	Result.G = A_.G - B_.G;
+	Result.B = A_.B - B_.B;
+	Result.A = A_.A - B_.A;
+
+	return Result;
+}
+
+TSingleRGBA operator*( const TSingleRGBA& A_, const float& B_ )
+{
+	TSingleRGBA Result;
+
+	Result.R = A_.R * B_;
+	Result.G = A_.G * B_;
+	Result.B = A_.B * B_;
+	Result.A = A_.A * B_;
+
+	return Result;
+}
+
+TSingleRGBA operator/( const TSingleRGBA& A_, const float& B_ )
+{
+	TSingleRGBA Result;
+
+	Result.R = A_.R / B_;
+	Result.G = A_.G / B_;
+	Result.B = A_.B / B_;
+	Result.A = A_.A / B_;
 
 	return Result;
 }
