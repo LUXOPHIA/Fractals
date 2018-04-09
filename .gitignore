@@ -1,0 +1,5 @@
+# RAD Studio local files (user-specific info)
+*.local
+*.identcache
+*.tvsconfig
+*.dsk
