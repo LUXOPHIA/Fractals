@@ -24,8 +24,15 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        property Abs2 :Double read GetAbs2;
        property Abso :Double read GetAbso;
        ///// 演算子
+       class operator Negative( const V_:TDoubleC ) :TDoubleC;
+       class operator Positive( const V_:TDoubleC ) :TDoubleC;
        class operator Add( const A_,B_:TDoubleC ) :TDoubleC;
+       class operator Subtract( const A_,B_:TDoubleC ) :TDoubleC;
        class operator Multiply( const A_,B_:TDoubleC ) :TDoubleC;
+       class operator Multiply( const A_:TDoubleC; const B_:Double ) :TDoubleC;
+       class operator Multiply( const A_:Double; const B_:TDoubleC ) :TDoubleC;
+       class operator Divide( const A_,B_:TDoubleC ) :TDoubleC;
+       class operator Divide( const A_:TDoubleC; const B_:Double ) :TDoubleC;
        ///// 型変換
        class operator Implicit( const V_:Double ) :TDoubleC;
      end;
@@ -89,6 +96,24 @@ end;
 
 ///////////////////////////////////////////////////////////////////////// 演算子
 
+class operator TDoubleC.Negative( const V_:TDoubleC ) :TDoubleC;
+begin
+     with Result do
+     begin
+          R := -V_.R;
+          I := -V_.I;
+     end
+end;
+
+class operator TDoubleC.Positive( const V_:TDoubleC ) :TDoubleC;
+begin
+     with Result do
+     begin
+          R := +V_.R;
+          I := +V_.I;
+     end
+end;
+
 class operator TDoubleC.Add( const A_,B_:TDoubleC ) :TDoubleC;
 begin
      with Result do
@@ -98,6 +123,15 @@ begin
      end;
 end;
 
+class operator TDoubleC.Subtract( const A_,B_:TDoubleC ) :TDoubleC;
+begin
+     with Result do
+     begin
+          R := A_.R - B_.R;
+          I := A_.I - B_.I;
+     end
+end;
+
 class operator TDoubleC.Multiply( const A_,B_:TDoubleC ) :TDoubleC;
 begin
      with Result do
@@ -105,6 +139,46 @@ begin
           R := A_.R * B_.R - A_.I * B_.I;
           I := A_.R * B_.I + A_.I * B_.R;
      end;
+end;
+
+class operator TDoubleC.Multiply( const A_:TDoubleC; const B_:Double ) :TDoubleC;
+begin
+     with Result do
+     begin
+          R := A_.R * B_;
+          I := A_.I * B_;
+     end
+end;
+
+class operator TDoubleC.Multiply( const A_:Double; const B_:TDoubleC ) :TDoubleC;
+begin
+     with Result do
+     begin
+          R := A_ * B_.R;
+          I := A_ * B_.I;
+     end
+end;
+
+class operator TDoubleC.Divide( const A_,B_:TDoubleC ) :TDoubleC;
+var
+   C :Double;
+begin
+     C := B_.Abs2;
+
+     with Result do
+     begin
+          R := ( A_.R * B_.R + A_.I * B_.I ) / C;
+          I := ( A_.I * B_.R - A_.R * B_.I ) / C;
+     end
+end;
+
+class operator TDoubleC.Divide( const A_:TDoubleC; const B_:Double ) :TDoubleC;
+begin
+     with Result do
+     begin
+          R := A_.R / B_;
+          I := A_.I / B_;
+     end
 end;
 
 ///////////////////////////////////////////////////////////////////////// 型変換
