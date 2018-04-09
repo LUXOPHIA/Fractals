@@ -43,9 +43,9 @@ function Pow2( const X_:Double ) :Double; inline; overload;
 function Roo2( const X_:Single ) :Single; inline; overload;
 function Roo2( const X_:Double ) :Double; inline; overload;
 
-function ClipRange( const X_,Min_,Max_:Integer ) :Integer; inline; overload;
-function ClipRange( const X_,Min_,Max_:Single ) :Single; inline; overload;
-function ClipRange( const X_,Min_,Max_:Double ) :Double; inline; overload;
+function Clamp( const X_,Min_,Max_:Integer ) :Integer; inline; overload;
+function Clamp( const X_,Min_,Max_:Single ) :Single; inline; overload;
+function Clamp( const X_,Min_,Max_:Double ) :Double; inline; overload;
 
 implementation //############################################################### ■
 
@@ -91,7 +91,7 @@ end;
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function ClipRange( const X_,Min_,Max_:Integer ) :Integer;
+function Clamp( const X_,Min_,Max_:Integer ) :Integer;
 begin
      if X_ < Min_ then Result := Min_
                   else
@@ -99,7 +99,7 @@ begin
                   else Result := X_;
 end;
 
-function ClipRange( const X_,Min_,Max_:Single ) :Single;
+function Clamp( const X_,Min_,Max_:Single ) :Single;
 begin
      if X_ < Min_ then Result := Min_
                   else
@@ -107,7 +107,7 @@ begin
                   else Result := X_;
 end;
 
-function ClipRange( const X_,Min_,Max_:Double ) :Double;
+function Clamp( const X_,Min_,Max_:Double ) :Double;
 begin
      if X_ < Min_ then Result := Min_
                   else
