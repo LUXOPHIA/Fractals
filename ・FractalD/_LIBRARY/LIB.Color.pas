@@ -208,10 +208,10 @@ class operator TSingleRGBA.Implicit( const C_:TSingleRGBA ) :TByteRGBA;
 begin
      with Result do
      begin
-          R := ClipRange( Round( 255 * C_.R ), 0, 255 );
-          G := ClipRange( Round( 255 * C_.G ), 0, 255 );
-          B := ClipRange( Round( 255 * C_.B ), 0, 255 );
-          A := ClipRange( Round( 255 * C_.A ), 0, 255 );
+          R := Clamp( Round( 255 * C_.R ), 0, 255 );
+          G := Clamp( Round( 255 * C_.G ), 0, 255 );
+          B := Clamp( Round( 255 * C_.B ), 0, 255 );
+          A := Clamp( Round( 255 * C_.A ), 0, 255 );
      end;
 end;
 
