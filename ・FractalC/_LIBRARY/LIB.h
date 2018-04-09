@@ -31,9 +31,9 @@ double Pow2( const double X_ );
 float Roo2( const float X_ );
 double Roo2( const double X_ );
 
-int ClipRange( const int X_, const int Min_, const int Max_ );
-float ClipRange( const float X_, const float Min_, const float Max_ );
-double ClipRange( const double X_, const double Min_, const double Max_ );
+int Clamp( const int X_, const int Min_, const int Max_ );
+float Clamp( const float X_, const float Min_, const float Max_ );
+double Clamp( const double X_, const double Min_, const double Max_ );
 
 //############################################################################## Å°
 #endif
