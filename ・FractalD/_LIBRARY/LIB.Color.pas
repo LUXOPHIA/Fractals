@@ -1,13 +1,13 @@
-unit LIB.Color;
+Ôªøunit LIB.Color;
 
-interface //#################################################################### Å°
+interface //#################################################################### ‚ñ†
 
 uses System.UITypes,
      LIB;
 
-type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Åyå^Åz
+type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„ÄêÂûã„Äë
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ÅyÉåÉRÅ[ÉhÅz
+     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„Äê„É¨„Ç≥„Éº„Éâ„Äë
 
      //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TByteRGBA
 
@@ -19,10 +19,17 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        R :Byte;
        A :Byte;
        /////
-       constructor Create( const R_,G_,B_:Byte; const A_:Byte = $FF );
-       ///// ÉvÉçÉpÉeÉB
-       ///// ââéZéq
-       ///// å^ïœä∑
+       constructor Create( const L_:Byte; const A_:Byte = $FF ); overload;
+       constructor Create( const R_,G_,B_:Byte; const A_:Byte = $FF ); overload;
+       ///// „Éó„É≠„Éë„ÉÜ„Ç£
+       ///// ÊºîÁÆóÂ≠ê
+       class operator Positive( const V_:TByteRGBA ) :TByteRGBA;
+       class operator Add( const A_,B_:TByteRGBA ) :TByteRGBA;
+       class operator Subtract( const A_,B_:TByteRGBA ) :TByteRGBA;
+       class operator Multiply( const A_:Byte; const B_:TByteRGBA ): TByteRGBA;
+       class operator Multiply( const A_:TByteRGBA; const B_:Byte ): TByteRGBA;
+       class operator Divide( const A_:TByteRGBA; const B_:Byte ): TByteRGBA;
+       ///// ÂûãÂ§âÊèõ
        class operator Implicit( const L_:Byte ) :TByteRGBA;
        class operator Implicit( const C_:TByteRGBA ) :TAlphaColor;
      end;
@@ -37,9 +44,10 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        B :Single;
        A :Single;
        /////
-       constructor Create( const R_,G_,B_:Single; const A_:Single = 1 );
-       ///// ÉvÉçÉpÉeÉB
-       ///// ââéZéq
+       constructor Create( const L_:Single; const A_:Single = 1 ); overload;
+       constructor Create( const R_,G_,B_:Single; const A_:Single = 1 ); overload;
+       ///// „Éó„É≠„Éë„ÉÜ„Ç£
+       ///// ÊºîÁÆóÂ≠ê
        class operator Negative( const V_:TSingleRGBA ) :TSingleRGBA;
        class operator Positive( const V_:TSingleRGBA ) :TSingleRGBA;
        class operator Add( const A_,B_:TSingleRGBA ) :TSingleRGBA;
@@ -47,28 +55,36 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        class operator Multiply( const A_:Single; const B_:TSingleRGBA ): TSingleRGBA;
        class operator Multiply( const A_:TSingleRGBA; const B_:Single ): TSingleRGBA;
        class operator Divide( const A_:TSingleRGBA; const B_:Single ): TSingleRGBA;
-       ///// å^ïœä∑
+       ///// ÂûãÂ§âÊèõ
        class operator Implicit( const L_:Single ) :TSingleRGBA;
        class operator Implicit( const C_:TSingleRGBA ) :TByteRGBA;
      end;
 
-     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ÅyÉNÉâÉXÅz
+     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„Äê„ÇØ„É©„Çπ„Äë
 
-//const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ÅyíËêîÅz
+//const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„ÄêÂÆöÊï∞„Äë
 
-//var //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ÅyïœêîÅz
+//var //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„ÄêÂ§âÊï∞„Äë
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ÅyÉãÅ[É`ÉìÅz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„Äê„É´„Éº„ÉÅ„É≥„Äë
 
-implementation //############################################################### Å°
+implementation //############################################################### ‚ñ†
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ÅyÉåÉRÅ[ÉhÅz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„Äê„É¨„Ç≥„Éº„Éâ„Äë
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TByteRGBA
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+
+constructor TByteRGBA.Create( const L_:Byte; const A_:Byte );
+begin
+     R := L_;
+     G := L_;
+     B := L_;
+     A := A_;
+end;
 
 constructor TByteRGBA.Create( const R_,G_,B_:Byte; const A_:Byte );
 begin
@@ -78,9 +94,75 @@ begin
      A := A_;
 end;
 
-///////////////////////////////////////////////////////////////////////// ââéZéq
+///////////////////////////////////////////////////////////////////////// ÊºîÁÆóÂ≠ê
 
-///////////////////////////////////////////////////////////////////////// å^ïœä∑
+class operator TByteRGBA.Positive( const V_:TByteRGBA ) :TByteRGBA;
+begin
+     with Result do
+     begin
+          R := +V_.R;
+          G := +V_.G;
+          B := +V_.B;
+          A := +V_.A;
+     end;
+end;
+
+class operator TByteRGBA.Add( const A_,B_:TByteRGBA ) :TByteRGBA;
+begin
+     with Result do
+     begin
+          R := A_.R + B_.R;
+          G := A_.G + B_.G;
+          B := A_.B + B_.B;
+          A := A_.A + B_.A;
+     end;
+end;
+
+class operator TByteRGBA.Subtract( const A_,B_:TByteRGBA ) :TByteRGBA;
+begin
+     with Result do
+     begin
+          R := A_.R - B_.R;
+          G := A_.G - B_.G;
+          B := A_.B - B_.B;
+          A := A_.A - B_.A;
+     end;
+end;
+
+class operator TByteRGBA.Multiply( const A_:Byte; const B_:TByteRGBA ): TByteRGBA;
+begin
+     with Result do
+     begin
+          R := A_ * B_.R;
+          G := A_ * B_.G;
+          B := A_ * B_.B;
+          A := A_ * B_.A;
+     end;
+end;
+
+class operator TByteRGBA.Multiply( const A_:TByteRGBA; const B_:Byte ): TByteRGBA;
+begin
+     with Result do
+     begin
+          R := A_.R * B_;
+          G := A_.G * B_;
+          B := A_.B * B_;
+          A := A_.A * B_;
+     end;
+end;
+
+class operator TByteRGBA.Divide( const A_:TByteRGBA; const B_:Byte ): TByteRGBA;
+begin
+     with Result do
+     begin
+          R := A_.R div B_;
+          G := A_.G div B_;
+          B := A_.B div B_;
+          A := A_.A div B_;
+     end;
+end;
+
+///////////////////////////////////////////////////////////////////////// ÂûãÂ§âÊèõ
 
 class operator TByteRGBA.Implicit( const L_:Byte ) :TByteRGBA;
 begin
@@ -104,6 +186,14 @@ end;
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
 
+constructor TSingleRGBA.Create( const L_:Single; const A_:Single = 1 );
+begin
+     R := L_;
+     G := L_;
+     B := L_;
+     A := A_;
+end;
+
 constructor TSingleRGBA.Create( const R_,G_,B_:Single; const A_:Single = 1 );
 begin
      R := R_;
@@ -112,7 +202,7 @@ begin
      A := A_;
 end;
 
-///////////////////////////////////////////////////////////////////////// ââéZéq
+///////////////////////////////////////////////////////////////////////// ÊºîÁÆóÂ≠ê
 
 class operator TSingleRGBA.Negative( const V_:TSingleRGBA ) :TSingleRGBA;
 begin
@@ -191,7 +281,7 @@ begin
      end;
 end;
 
-///////////////////////////////////////////////////////////////////////// å^ïœä∑
+///////////////////////////////////////////////////////////////////////// ÂûãÂ§âÊèõ
 
 class operator TSingleRGBA.Implicit( const L_:Single ) :TSingleRGBA;
 begin
@@ -208,21 +298,21 @@ class operator TSingleRGBA.Implicit( const C_:TSingleRGBA ) :TByteRGBA;
 begin
      with Result do
      begin
-          R := Clamp( Round( 255 * C_.R ), 0, 255 );
-          G := Clamp( Round( 255 * C_.G ), 0, 255 );
-          B := Clamp( Round( 255 * C_.B ), 0, 255 );
-          A := Clamp( Round( 255 * C_.A ), 0, 255 );
+          R := Round( 255 * Clamp( C_.R, 0, 1 ) );
+          G := Round( 255 * Clamp( C_.G, 0, 1 ) );
+          B := Round( 255 * Clamp( C_.B, 0, 1 ) );
+          A := Round( 255 * Clamp( C_.A, 0, 1 ) );
      end;
 end;
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ÅyÉNÉâÉXÅz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„Äê„ÇØ„É©„Çπ„Äë
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ÅyÉãÅ[É`ÉìÅz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$„Äê„É´„Éº„ÉÅ„É≥„Äë
 
-//############################################################################## Å†
+//############################################################################## ‚ñ°
 
-initialization //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ èâä˙âª
+initialization //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ ÂàùÊúüÂåñ
 
-finalization //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ ç≈èIâª
+finalization //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ ÊúÄÁµÇÂåñ
 
-end. //######################################################################### Å°
+end. //######################################################################### ‚ñ†
