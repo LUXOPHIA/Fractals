@@ -11,12 +11,12 @@
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
-double TDoubleC::GetAbs2()
+double TDoubleC::GetAbs2() const
 {
 	return Pow2( R ) + Pow2( I );
 }
 
-double TDoubleC::GetAbso()
+double TDoubleC::GetAbso() const
 {
 	return Roo2( GetAbs2() );
 }
@@ -37,12 +37,42 @@ TDoubleC::TDoubleC( const double R_, const double I_ )
 
 ///////////////////////////////////////////////////////////////////////// 演算子
 
+TDoubleC operator+( const TDoubleC& A_ )
+{
+	TDoubleC Result;
+
+	Result.R = +A_.R;
+	Result.I = +A_.I;
+
+	return Result;
+}
+
+TDoubleC operator-( const TDoubleC& A_ )
+{
+	TDoubleC Result;
+
+	Result.R = -A_.R;
+	Result.I = -A_.I;
+
+	return Result;
+}
+
 TDoubleC operator+( const TDoubleC& A_, const TDoubleC& B_ )
 {
 	TDoubleC Result;
 
 	Result.R = A_.R + B_.R;
 	Result.I = A_.I + B_.I;
+
+	return Result;
+}
+
+TDoubleC operator-( const TDoubleC& A_, const TDoubleC& B_ )
+{
+	TDoubleC Result;
+
+	Result.R = A_.R - B_.R;
+	Result.I = A_.I - B_.I;
 
 	return Result;
 }
@@ -57,18 +87,60 @@ TDoubleC operator*( const TDoubleC& A_, const TDoubleC& B_ )
 	return Result;
 }
 
+TDoubleC operator*( const TDoubleC& A_, const double& B_ )
+{
+	TDoubleC Result;
+
+	Result.R = A_.R * B_;
+	Result.I = A_.I * B_;
+
+	return Result;
+}
+
+TDoubleC operator*( const double& A_, const TDoubleC& B_ )
+{
+	TDoubleC Result;
+
+	Result.R = A_ * B_.R;
+	Result.I = A_ * B_.I;
+
+	return Result;
+}
+
+TDoubleC operator/( const TDoubleC& A_, const TDoubleC& B_ )
+{
+	TDoubleC Result;
+
+	double C = B_.Abs2;
+
+	Result.R = ( A_.R * B_.R + A_.I * B_.I ) / C;
+	Result.I = ( A_.I * B_.R - A_.R * B_.I ) / C;
+
+	return Result;
+}
+
+TDoubleC operator/( const TDoubleC& A_, const double& B_ )
+{
+	TDoubleC Result;
+
+	Result.R = A_.R / B_;
+	Result.I = A_.I / B_;
+
+	return Result;
+}
+
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TDoubleAreaC
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& private
 
 /////////////////////////////////////////////////////////////////////// アクセス
 
-double TDoubleAreaC::GetSizeR()
+double TDoubleAreaC::GetSizeR() const
 {
 	return Max.R - Min.R;
 }
 
-double TDoubleAreaC::GetSizeI()
+double TDoubleAreaC::GetSizeI() const
 {
 	return Max.I - Min.I;
 }

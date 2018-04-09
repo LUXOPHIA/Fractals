@@ -1,21 +1,21 @@
-#ifndef LIB_ComplexH
+ï»¿#ifndef LIB_ComplexH
 #define LIB_ComplexH
-//############################################################################## ¡
+//############################################################################## â– 
 
 #include <LIB.h>
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yŒ^z
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€å‹ã€‘
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒŒƒR[ƒhz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ãƒ¬ã‚³ãƒ¼ãƒ‰ã€‘
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TDoubleC
 
 struct TDoubleC
 {
 private:
-	///// ƒAƒNƒZƒX
-	double GetAbs2();
-	double GetAbso();
+	///// ã‚¢ã‚¯ã‚»ã‚¹
+	double GetAbs2() const;
+	double GetAbso() const;
 public:
 	double R;
 	double I;
@@ -23,13 +23,20 @@ public:
 	TDoubleC(){};
 	TDoubleC( const double R_ );
 	TDoubleC( const double R_, const double I_ );
-	///// ƒvƒƒpƒeƒB
+	///// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
 	__property double Abs2 = { read = GetAbs2 };
 	__property double Abso = { read = GetAbso };
-	///// ‰‰Zq
+	///// æ¼”ç®—å­
+	friend TDoubleC operator+( const TDoubleC& A_ );
+	friend TDoubleC operator-( const TDoubleC& A_ );
 	friend TDoubleC operator+( const TDoubleC& A_, const TDoubleC& B_ );
+	friend TDoubleC operator-( const TDoubleC& A_, const TDoubleC& B_ );
 	friend TDoubleC operator*( const TDoubleC& A_, const TDoubleC& B_ );
-	///// Œ^•ÏŠ·
+	friend TDoubleC operator*( const TDoubleC& A_, const double& B_ );
+	friend TDoubleC operator*( const double& A_, const TDoubleC& B_ );
+	friend TDoubleC operator/( const TDoubleC& A_, const TDoubleC& B_ );
+	friend TDoubleC operator/( const TDoubleC& A_, const double& B_ );
+	///// å‹å¤‰æ›
 };
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TDoubleAreaC
@@ -37,31 +44,31 @@ public:
 struct TDoubleAreaC
 {
 private:
-	///// ƒAƒNƒZƒX
-	double GetSizeR();
-	double GetSizeI();
+	///// ã‚¢ã‚¯ã‚»ã‚¹
+	double GetSizeR() const;
+	double GetSizeI() const;
 public:
 	TDoubleC Min;
 	TDoubleC Max;
 	/////
 	TDoubleAreaC(){};
 	TDoubleAreaC( const double MinR_, const double MinI_, const double MaxR_, const double MaxI_ );
-	///// ƒvƒƒpƒeƒB
+	///// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
 	__property double SizeR = { read = GetSizeR };
 	__property double SizeI = { read = GetSizeI };
-	///// ‰‰Zq
-	///// Œ^•ÏŠ·
+	///// æ¼”ç®—å­
+	///// å‹å¤‰æ›
 };
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒNƒ‰ƒXz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ã‚¯ãƒ©ã‚¹ã€‘
 
-///$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$y’è”z
+///$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€å®šæ•°ã€‘
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$y•Ï”z
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€å¤‰æ•°ã€‘
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒ‹[ƒ`ƒ“z
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ãƒ«ãƒ¼ãƒãƒ³ã€‘
 
 TDoubleC Pow2( const TDoubleC X_ );
 
-//############################################################################## ¡
+//############################################################################## â– 
 #endif
