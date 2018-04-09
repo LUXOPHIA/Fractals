@@ -3,10 +3,10 @@
         <ProjectGuid>{EE624BE9-5D17-4EFA-B4B0-2578578AFC5B}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="・FractalC\FractalC.cbproj">
+        <Projects Include="FractalC\FractalC.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="・FractalD\FractalD.dproj">
+        <Projects Include="FractalD\FractalD.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -18,22 +18,22 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="FractalC">
-        <MSBuild Projects="・FractalC\FractalC.cbproj"/>
+        <MSBuild Projects="FractalC\FractalC.cbproj"/>
     </Target>
     <Target Name="FractalC:Clean">
-        <MSBuild Projects="・FractalC\FractalC.cbproj" Targets="Clean"/>
+        <MSBuild Projects="FractalC\FractalC.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="FractalC:Make">
-        <MSBuild Projects="・FractalC\FractalC.cbproj" Targets="Make"/>
+        <MSBuild Projects="FractalC\FractalC.cbproj" Targets="Make"/>
     </Target>
     <Target Name="FractalD">
-        <MSBuild Projects="・FractalD\FractalD.dproj"/>
+        <MSBuild Projects="FractalD\FractalD.dproj"/>
     </Target>
     <Target Name="FractalD:Clean">
-        <MSBuild Projects="・FractalD\FractalD.dproj" Targets="Clean"/>
+        <MSBuild Projects="FractalD\FractalD.dproj" Targets="Clean"/>
     </Target>
     <Target Name="FractalD:Make">
-        <MSBuild Projects="・FractalD\FractalD.dproj" Targets="Make"/>
+        <MSBuild Projects="FractalD\FractalD.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="FractalC;FractalD"/>
