@@ -1,13 +1,13 @@
-#ifndef LIB_ColorH
+ï»¿#ifndef LIB_ColorH
 #define LIB_ColorH
-//############################################################################## ¡
+//############################################################################## â– 
 
 #include <System.UITypes.hpp>
 #include <LIB.h>
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yŒ^z
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€å‹ã€‘
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒŒƒR[ƒhz
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ãƒ¬ã‚³ãƒ¼ãƒ‰ã€‘
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TByteRGBA
 
@@ -23,19 +23,48 @@ public:
 	TByteRGBA(){};
 	TByteRGBA( const uint8_t R_, const uint8_t G_, const uint8_t B_, const uint8_t A_ = 0xFF );
 	TByteRGBA( const uint8_t L_ );
-	///// ƒvƒƒpƒeƒB
-	///// ‰‰Zq
-	///// Œ^•ÏŠ·
-	operator TAlphaColor();
+	///// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+	///// æ¼”ç®—å­
+	friend TByteRGBA operator+( const TByteRGBA A, const TByteRGBA B );
+	friend TByteRGBA operator-( const TByteRGBA A, const TByteRGBA B );
+	friend TByteRGBA operator*( const TByteRGBA A, const float B );
+	friend TByteRGBA operator/( const TByteRGBA A, const float B );
+	///// å‹å¤‰æ›
+	operator TAlphaColor() const;
 };
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒNƒ‰ƒXz
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TSingleRGBA
 
-///$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$y’è”z
+struct TSingleRGBA
+{
+private:
+public:
+	float B;
+	float G;
+	float R;
+	float A;
+	/////
+	TSingleRGBA(){};
+	TSingleRGBA( const float R_, const float G_, const float B_, const float A_ = 1 );
+	TSingleRGBA( const float L_ );
+	///// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+	///// æ¼”ç®—å­
+	friend TSingleRGBA operator+( const TSingleRGBA A, const TSingleRGBA B );
+	friend TSingleRGBA operator-( const TSingleRGBA A, const TSingleRGBA B );
+	friend TSingleRGBA operator*( const TSingleRGBA A, const float B );
+	friend TSingleRGBA operator/( const TSingleRGBA A, const float B );
+	///// å‹å¤‰æ›
+	operator TByteRGBA() const;
+	operator TAlphaColor() const;
+};
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$y•Ï”z
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ã‚¯ãƒ©ã‚¹ã€‘
 
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$yƒ‹[ƒ`ƒ“z
+///$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€å®šæ•°ã€‘
 
-//############################################################################## ¡
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€å¤‰æ•°ã€‘
+
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ã€ãƒ«ãƒ¼ãƒãƒ³ã€‘
+
+//############################################################################## â– 
 #endif
