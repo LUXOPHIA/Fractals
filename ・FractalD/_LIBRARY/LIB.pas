@@ -16,11 +16,11 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      HBitmapData = record helper for TBitmapData
      private
        ///// アクセス
-       function GetColor( const X_,Y_:Integer ) :TAlphaColor; inline;
-       procedure SetColor( const X_,Y_:Integer; const Color_:TAlphaColor ); inline;
+       function GetPixels( const X_,Y_:Integer ) :TAlphaColor; inline;
+       procedure SetPixels( const X_,Y_:Integer; const Pixel_:TAlphaColor ); inline;
      public
        ///// プロパティ
-       property Color[ const X_,Y_:Integer ] :TAlphaColor read GetColor write SetColor;
+       property Pixels[ const X_,Y_:Integer ] :TAlphaColor read GetPixels write SetPixels;
      end;
 
 const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【定数】
@@ -55,14 +55,14 @@ implementation //###############################################################
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HBitmapData
 
-function HBitmapData.GetColor( const X_,Y_:Integer ) :TAlphaColor;
+function HBitmapData.GetPixels( const X_,Y_:Integer ) :TAlphaColor;
 begin
      Result := GetPixel( X_, Y_ );
 end;
 
-procedure HBitmapData.SetColor( const X_,Y_:Integer; const Color_:TAlphaColor );
+procedure HBitmapData.SetPixels( const X_,Y_:Integer; const Pixel_:TAlphaColor );
 begin
-     SetPixel( X_, Y_, Color_ );
+     SetPixel( X_, Y_, Pixel_ );
 end;
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
