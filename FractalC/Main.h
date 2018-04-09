@@ -20,6 +20,7 @@ class TForm1 : public TForm
 {
 __published:	// IDE で管理されるコンポーネント
 	TImage *Image1;
+	TPanel *Panel1;
 	TGroupBox *GroupBoxI;
 	TLabel *LabelW;
 	TEdit *EditW;

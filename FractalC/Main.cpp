@@ -30,8 +30,8 @@ TDoubleC TForm1::ScreenComplex( const int X_, const int Y_ )
 
 TSingleRGBA TForm1::ComplexColor( const TDoubleC C_ )
 {
-	TSingleRGBA C0 { 0, 0, 0, 1 };
-	TSingleRGBA C1 { 1, 1, 1, 1 };
+	const TSingleRGBA C0 { 0, 0, 0, 1 };
+	const TSingleRGBA C1 { 1, 1, 1, 1 };
 
 	TDoubleC Z = 0;
 
@@ -39,7 +39,7 @@ TSingleRGBA TForm1::ComplexColor( const TDoubleC C_ )
 	{
 		Z = Pow2( Z ) + C_;
 
-		if ( Z.Abso > 2 ) return ( C1 - C0 ) * float( N / _FuncN ) + C0;
+		if ( Z.Abso > 2 ) return ( C1 - C0 ) * float( N ) / float ( _FuncN ) + C0;
 	}
 
 	return C1;
