@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.StdCtrls, FMX.ExtCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.Objects,
-  LIB, LIB.Complex, LIB.Color;
+  LIB, LIB.Complex;
 
 type
   TForm1 = class(TForm)
@@ -36,7 +36,7 @@ type
     _AreaC :TDoubleAreaC;
     /////
     function ScreenToComplex( const X_,Y_:Integer ) :TDoubleC;
-    function ComplexToColor( const C_:TDoubleC ) :TByteRGBA;
+    function ComplexToColor( const C_:TDoubleC ) :TAlphaColorF;
   end;
 
 var
@@ -59,7 +59,10 @@ begin
      end;
 end;
 
-function TForm1.ComplexToColor( const C_:TDoubleC ) :TByteRGBA;
+function TForm1.ComplexToColor( const C_:TDoubleC ) :TAlphaColorF;
+const
+     C0 :TAlphaColorF = ( R:0; G:0; B:0; A:1 );
+     C1 :TAlphaColorF = ( R:1; G:1; B:1; A:1 );
 var
    Z :TDoubleC;
    N :Integer;
@@ -72,19 +75,13 @@ begin
 
           if Z.Abso > 2 then
           begin
-               with Result do
-               begin
-                    R := ( N +   0 ) mod 256;
-                    G := ( N +  85 ) mod 256;
-                    B := ( N + 170 ) mod 256;
-                    A := $FF;
-               end;
+               Result := ( C1 - C0 ) * N / _FuncN + C0;
 
                Exit;
           end;
      end;
 
-     Result := 0;
+     Result := C1;
 end;
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -105,10 +102,10 @@ begin
      ButtonP.Enabled := False;
      ButtonB.Enabled := True;
 
-     _SizeW := StrToInt( EditW.Text );
-     _SizeH := StrToInt( EditH.Text );
+     _SizeW := EditW.Text.ToInteger;
+     _SizeH := EditH.Text.ToInteger;
 
-     _FuncN := StrToInt( EditN.Text );
+     _FuncN := EditN.Text.ToInteger;
 
      case PopupBoxA.ItemIndex of
        0: _AreaC := TDoubleAreaC.Create( -2.00000, -2.00000, +2.00000, +2.00000 );
@@ -134,7 +131,7 @@ begin
                begin
                     C := ScreenToComplex( X, Y );
 
-                    B.Color[ X, Y ] := ComplexToColor( C );
+                    B.Pixels[ X, Y ] := ComplexToColor( C ).ToAlphaColor;
                end;
 
                Unmap( B );
