@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------
 
 #include <fmx.h>
 #pragma hdrstop
@@ -28,28 +28,31 @@ TDoubleC TForm1::ScreenComplex( const int X_, const int Y_ )
 	return Result;
 }
 
-TByteRGBA TForm1::ComplexColor( const TDoubleC V_ )
+TAlphaColorF TForm1::ComplexColor( const TDoubleC C_ )
 {
+	TAlphaColorF C0 { 0, 0, 0, 1 };
+	TAlphaColorF C1 { 1, 1, 1, 1 };
+
 	TDoubleC Z = 0;
 
 	for ( int N = 1; N <= _FuncN; ++N )
 	{
-		Z = Pow2( Z ) + V_;
+		Z = Pow2( Z ) + C_;
 
 		if ( Z.Abso > 2 )
 		{
-			TByteRGBA Result;
+			TAlphaColorF Result;
 
-			Result.R = ( N +   0 ) % 256;
-			Result.G = ( N +  85 ) % 256;
-			Result.B = ( N + 170 ) % 256;
-			Result.A = 0xFF;
+			Result.R = ( C1.R - C0.R ) * N / _FuncN + C0.R;
+			Result.G = ( C1.G - C0.G ) * N / _FuncN + C0.G;
+			Result.B = ( C1.B - C0.B ) * N / _FuncN + C0.B;
+			Result.A = ( C1.A - C0.A ) * N / _FuncN + C0.A;
 
 			return Result;
 		}
 	}
 
-	return 0;
+	return C1;
 }
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -93,7 +96,7 @@ void __fastcall TForm1::ButtonPClick(TObject *Sender)
 		{
 			TDoubleC C = ScreenComplex( X, Y );
 
-			B.SetPixel( X, Y, ComplexColor( C ) );
+			B.SetPixel( X, Y, ComplexColor( C ).ToAlphaColor() );
 		}
 
 		Image1->Bitmap->Unmap( B );

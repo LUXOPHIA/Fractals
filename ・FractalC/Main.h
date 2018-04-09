@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+ï»¿//---------------------------------------------------------------------------
 
 #ifndef MainH
 #define MainH
@@ -18,7 +18,7 @@
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
-__published:	// IDE ‚ÅŠÇ—‚³‚ê‚éƒRƒ“ƒ|[ƒlƒ“ƒg
+__published:	// IDE ã§ç®¡ç†ã•ã‚Œã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	TImage *Image1;
 	TGroupBox *GroupBoxI;
 	TLabel *LabelW;
@@ -35,8 +35,8 @@ __published:	// IDE ‚ÅŠÇ—‚³‚ê‚éƒRƒ“ƒ|[ƒlƒ“ƒg
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall ButtonPClick(TObject *Sender);
 	void __fastcall ButtonBClick(TObject *Sender);
-private:	// ƒ†[ƒU[éŒ¾
-public:		// ƒ†[ƒU[éŒ¾
+private:	// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
+public:		// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®£è¨€
 	int          _SizeW;
 	int          _SizeH;
 	int          _FuncN;
@@ -45,7 +45,7 @@ public:		// ƒ†[ƒU[éŒ¾
 	__fastcall TForm1(TComponent* Owner);
 	/////
 	TDoubleC ScreenComplex( const int X_, const int Y_ );
-	TByteRGBA ComplexColor( const TDoubleC V_ );
+	TAlphaColorF ComplexColor( const TDoubleC C_ );
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
