@@ -28,8 +28,9 @@ public:
 	friend TByteRGBA operator+( const TByteRGBA& A_ );
 	friend TByteRGBA operator+( const TByteRGBA& A_, const TByteRGBA& B_ );
 	friend TByteRGBA operator-( const TByteRGBA& A_, const TByteRGBA& B_ );
-	friend TByteRGBA operator*( const TByteRGBA& A_, const uint8_t B_ );
-	friend TByteRGBA operator/( const TByteRGBA& A_, const uint8_t B_ );
+	friend TByteRGBA operator*( const uint8_t& A_, const TByteRGBA& B_ );
+	friend TByteRGBA operator*( const TByteRGBA& A_, const uint8_t& B_ );
+	friend TByteRGBA operator/( const TByteRGBA& A_, const uint8_t& B_ );
 	///// 型変換
 	operator TAlphaColor() const;
 };
@@ -54,11 +55,11 @@ public:
 	friend TSingleRGBA operator-( const TSingleRGBA& A_ );
 	friend TSingleRGBA operator+( const TSingleRGBA& A_, const TSingleRGBA& B_ );
 	friend TSingleRGBA operator-( const TSingleRGBA& A_, const TSingleRGBA& B_ );
+	friend TSingleRGBA operator*( const float& A_, const TSingleRGBA& B_ );
 	friend TSingleRGBA operator*( const TSingleRGBA& A_, const float& B_ );
 	friend TSingleRGBA operator/( const TSingleRGBA& A_, const float& B_ );
 	///// 型変換
 	operator TByteRGBA() const;
-	operator TAlphaColor() const;
 };
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】

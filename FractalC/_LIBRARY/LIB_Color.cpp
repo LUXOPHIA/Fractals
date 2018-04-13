@@ -65,6 +65,18 @@ TByteRGBA operator-( const TByteRGBA& A_, const TByteRGBA& B_ )
 	return Result;
 }
 
+TByteRGBA operator*( const uint8_t& A_, const TByteRGBA& B_ )
+{
+	TByteRGBA Result;
+
+	Result.R = A_ * B_.R;
+	Result.G = A_ * B_.G;
+	Result.B = A_ * B_.B;
+	Result.A = A_ * B_.A;
+
+	return Result;
+}
+
 TByteRGBA operator*( const TByteRGBA& A_, const uint8_t& B_ )
 {
 	TByteRGBA Result;
@@ -168,6 +180,18 @@ TSingleRGBA operator-( const TSingleRGBA& A_, const TSingleRGBA& B_ )
 	return Result;
 }
 
+TSingleRGBA operator*( const float& A_, const TSingleRGBA& B_ )
+{
+	TSingleRGBA Result;
+
+	Result.R = A_ * B_.R;
+	Result.G = A_ * B_.G;
+	Result.B = A_ * B_.B;
+	Result.A = A_ * B_.A;
+
+	return Result;
+}
+
 TSingleRGBA operator*( const TSingleRGBA& A_, const float& B_ )
 {
 	TSingleRGBA Result;
@@ -204,11 +228,6 @@ TSingleRGBA::operator TByteRGBA() const
 	Result.A = round( 255 * Clamp( A, 0.0f, 1.0f ) );
 
 	return Result;
-}
-
-TSingleRGBA::operator TAlphaColor() const
-{
-	return this->operator TByteRGBA();
 }
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【クラス】
