@@ -102,7 +102,7 @@ begin
      begin
           R := -V_.R;
           I := -V_.I;
-     end
+     end;
 end;
 
 class operator TDoubleC.Positive( const V_:TDoubleC ) :TDoubleC;
@@ -111,7 +111,7 @@ begin
      begin
           R := +V_.R;
           I := +V_.I;
-     end
+     end;
 end;
 
 class operator TDoubleC.Add( const A_,B_:TDoubleC ) :TDoubleC;
@@ -129,7 +129,7 @@ begin
      begin
           R := A_.R - B_.R;
           I := A_.I - B_.I;
-     end
+     end;
 end;
 
 class operator TDoubleC.Multiply( const A_,B_:TDoubleC ) :TDoubleC;
@@ -147,7 +147,7 @@ begin
      begin
           R := A_.R * B_;
           I := A_.I * B_;
-     end
+     end;
 end;
 
 class operator TDoubleC.Multiply( const A_:Double; const B_:TDoubleC ) :TDoubleC;
@@ -156,7 +156,7 @@ begin
      begin
           R := A_ * B_.R;
           I := A_ * B_.I;
-     end
+     end;
 end;
 
 class operator TDoubleC.Divide( const A_,B_:TDoubleC ) :TDoubleC;
@@ -169,7 +169,7 @@ begin
      begin
           R := ( A_.R * B_.R + A_.I * B_.I ) / C;
           I := ( A_.I * B_.R - A_.R * B_.I ) / C;
-     end
+     end;
 end;
 
 class operator TDoubleC.Divide( const A_:TDoubleC; const B_:Double ) :TDoubleC;
@@ -178,7 +178,7 @@ begin
      begin
           R := A_.R / B_;
           I := A_.I / B_;
-     end
+     end;
 end;
 
 ///////////////////////////////////////////////////////////////////////// 型変換
