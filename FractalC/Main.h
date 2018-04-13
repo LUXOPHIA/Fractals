@@ -4,14 +4,13 @@
 #define MainH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
+#include <FMX.Types.hpp>
 #include <FMX.Controls.hpp>
-#include <FMX.Forms.hpp>
 #include <FMX.Controls.Presentation.hpp>
-#include <FMX.Edit.hpp>
-#include <FMX.ExtCtrls.hpp>
 #include <FMX.Objects.hpp>
 #include <FMX.StdCtrls.hpp>
-#include <FMX.Types.hpp>
+#include <FMX.Edit.hpp>
+#include <FMX.ExtCtrls.hpp>
 #include <LIB.h>
 #include <LIB_Complex.h>
 #include <LIB_Color.h>
