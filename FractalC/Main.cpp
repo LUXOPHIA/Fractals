@@ -39,7 +39,7 @@ TSingleRGBA TForm1::ComplexColor( const TDoubleC C_ )
 	{
 		Z = Pow2( Z ) + C_;
 
-		if ( Z.Abso > 2 ) return ( C1 - C0 ) * float( N ) / float ( _FuncN ) + C0;
+		if ( Z.Abso > 2 ) return ( C1 - C0 ) * float( N ) / float( _FuncN ) + C0;
 	}
 
 	return C1;
@@ -49,7 +49,7 @@ TSingleRGBA TForm1::ComplexColor( const TDoubleC C_ )
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 {
-	 CanClose = ButtonP->Enabled;
+	CanClose = ButtonP->Enabled;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonPClick(TObject *Sender)
@@ -86,7 +86,7 @@ void __fastcall TForm1::ButtonPClick(TObject *Sender)
 		{
 			TDoubleC C = ScreenComplex( X, Y );
 
-			B.SetPixel( X, Y, TAlphaColor( ComplexColor( C ) ) );
+			B.SetPixel( X, Y, TByteRGBA( ComplexColor( C ) ) );
 		}
 
 		Image1->Bitmap->Unmap( B );
