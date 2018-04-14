@@ -23,12 +23,12 @@ double Pow2( const double X_ )
 
 float Roo2( const float X_ )
 {
-	return Sqrt( X_ );
+	return sqrt( X_ );
 }
 
 double Roo2( const double X_ )
 {
-	return Sqrt( X_ );
+	return sqrt( X_ );
 }
 
 ////////////////////////////////////////////////////////////////////////////////
