@@ -16,7 +16,7 @@ TByteRGBA::TByteRGBA( const uint8_t L_, const uint8_t A_ )
 	R = L_;
 	G = L_;
 	B = L_;
-	A = 0xFF;
+	A = A_;
 }
 
 TByteRGBA::TByteRGBA( const uint8_t R_, const uint8_t G_, const uint8_t B_, const uint8_t A_ )
