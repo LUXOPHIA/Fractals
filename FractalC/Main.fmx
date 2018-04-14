@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = 'FractalC'
   ClientHeight = 520
-  ClientWidth = 645
+  ClientWidth = 650
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -15,17 +15,18 @@ object Form1: TForm1
       item
       end>
     Align = Client
+    DisableInterpolation = True
     Margins.Left = 10.000000000000000000
     Margins.Top = 10.000000000000000000
     Margins.Bottom = 10.000000000000000000
-    Size.Width = 495.000000000000000000
+    Size.Width = 500.000000000000000000
     Size.Height = 500.000000000000000000
     Size.PlatformDefault = False
     WrapMode = Stretch
   end
   object Panel1: TPanel
     Align = Right
-    Position.X = 505.000000000000000000
+    Position.X = 510.000000000000000000
     Size.Width = 140.000000000000000000
     Size.Height = 520.000000000000000000
     Size.PlatformDefault = False
