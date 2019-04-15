@@ -10,4 +10,4 @@ An attempt to promote rapid multilingual learning by implementing the same appli
 | ![](https://github.com/LUXOPHIA/Fractals/raw/master/FractalD/--------/_SCREENSHOT/FractalD.png) | ![](https://github.com/LUXOPHIA/Fractals/raw/master/FractalC/--------/_SCREENSHOT/FractalC.png) |
 
 ----
-[![Delphi Starter](http://img.en25.com/EloquaImages/clients/Embarcadero/%7B063f1eec-64a6-4c19-840f-9b59d407c914%7D_dx-starter-bn159.png)](https://www.embarcadero.com/jp/products/delphi/starter)
+[![Delphi Starter](https://github.com/delphiusers/FreeDelphi/raw/master/Banner/FreeDelphi-Banner_350x126.png)](https://www.embarcadero.com/jp/products/delphi/starter)
