@@ -4,6 +4,7 @@
 #define MainH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
+#include <System.UITypes.hpp>
 #include <FMX.Types.hpp>
 #include <FMX.Controls.hpp>
 #include <FMX.Controls.Presentation.hpp>
@@ -11,9 +12,7 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Edit.hpp>
 #include <FMX.ExtCtrls.hpp>
-#include <LIB.h>
 #include <LIB_Complex.h>
-#include <LIB_Color.h>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -45,7 +44,7 @@ public:		// ユーザー宣言
 	__fastcall TForm1(TComponent* Owner);
 	/////
 	TDoubleC ScreenComplex( const int X_, const int Y_ );
-	TSingleRGBA ComplexColor( const TDoubleC C_ );
+	TAlphaColorF ComplexColor( const TDoubleC C_ );
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

@@ -28,10 +28,10 @@ TDoubleC TForm1::ScreenComplex( const int X_, const int Y_ )
 	return Result;
 }
 
-TSingleRGBA TForm1::ComplexColor( const TDoubleC C_ )
+TAlphaColorF TForm1::ComplexColor( const TDoubleC C_ )
 {
-	const TSingleRGBA C0 { 0, 0, 0, 1 };
-	const TSingleRGBA C1 { 1, 1, 1, 1 };
+	TAlphaColorF C0 { 0, 0, 0, 1 };
+	TAlphaColorF C1 { 1, 1, 1, 1 };
 
 	TDoubleC Z = 0;
 
@@ -86,7 +86,7 @@ void __fastcall TForm1::ButtonPClick(TObject *Sender)
 		{
 			TDoubleC C = ScreenComplex( X, Y );
 
-			B.SetPixel( X, Y, TByteRGBA( ComplexColor( C ) ) );
+			B.SetPixel( X, Y, ComplexColor( C ).ToAlphaColor() );
 		}
 
 		Image1->Bitmap->Unmap( B );
