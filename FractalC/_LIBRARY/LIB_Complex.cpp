@@ -13,12 +13,12 @@
 
 double TDoubleC::GetAbs2() const
 {
-	return Pow2( R ) + Pow2( I );
+	return R*R + I*I;
 }
 
 double TDoubleC::GetAbso() const
 {
-	return Roo2( GetAbs2() );
+	return std::sqrt( GetAbs2() );
 }
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
