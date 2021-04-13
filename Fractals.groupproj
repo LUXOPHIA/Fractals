@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{EE624BE9-5D17-4EFA-B4B0-2578578AFC5B}</ProjectGuid>
+        <ProjectGuid>{E5A9479A-CF8F-4633-B79D-35F7681EA245}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
         <Projects Include="FractalC\FractalC.cbproj">
